@@ -1,9 +1,9 @@
-FROM pytorch/pytorch
+FROM tensorflow/tensorflow
 
 RUN pip install --upgrade pip && \
     pip install --upgrade protobuf \
     pip install grpcio grpcio-tools
 
 ADD . /app
-ADD ./data /data
+ADD ./train /train
 ENTRYPOINT [ "python", "/app/main.py" ]
